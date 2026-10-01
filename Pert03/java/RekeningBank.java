@@ -94,8 +94,10 @@ public class RekeningBank {
         return pokok * bunga_tahunan;   // ganti
     }
 
-    public double getSaldo()  { return saldo; }
-    public String getNomor()  { return nomor; }
+    public double getSaldo()  {
+         return saldo; }
+    public String getNomor()  {
+         return nomor; }
 
     @Override
     public String toString() {

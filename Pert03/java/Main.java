@@ -10,8 +10,7 @@ public class Main {
         System.out.println(b);
         System.out.println(c);
 
-        System.out.println("Jumlah rekening sekarang: " + RekeningBank.JumlahRekening()
-                           + "   (seharusnya 3, bukan 4)");
+        System.out.println("Jumlah rekening sekarang: " + RekeningBank.JumlahRekening()+ "(seharusnya 3, bukan 4)");
 
         System.out.println();
         System.out.println("=== Operasi ===");
