@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Nama** | Joni |
+| **Nama** | Muzaki Arifin |
 | **NPM** | 4525210051 |
 | **Kelas** | PBO A 2025/2026 |
 | **Dosen Pengampu** | Adi Wahyu Pribadi, S.Si., M.Kom |
