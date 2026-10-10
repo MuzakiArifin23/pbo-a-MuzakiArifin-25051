@@ -62,21 +62,27 @@ PHP tidak punya constructor overloading, jadi padanannya:
 
 Sebelum perbaikan:
 
-![Java sebelum](images/java-sebelum.png)
+<img width="759" height="202" alt="sebelum java pert3" src="https://github.com/user-attachments/assets/ceb17fc5-191e-4fb7-b3d2-d2078fd0e226" />
+
 
 Sesudah perbaikan (`java Main`):
 
-![Java sesudah](images/java-sesudah.png)
+
+<img width="761" height="203" alt="sesudah java pert3" src="https://github.com/user-attachments/assets/b4853027-753e-4cea-8420-b02127af26dd" />
+
 
 ### PHP
 
 Sebelum perbaikan:
 
-![PHP sebelum](images/php-sebelum.png)
+<img width="1371" height="216" alt="sebelum php pert3" src="https://github.com/user-attachments/assets/650a7d72-9f07-4ff0-9e33-0b5c4307eb7d" />
+
 
 Sesudah perbaikan (`php main.php`):
 
-![PHP sesudah](images/php-sesudah.png)
+
+<img width="756" height="203" alt="sesudah php pert3" src="https://github.com/user-attachments/assets/06af67d6-42cb-4eed-a5ee-5a09c6a394ca" />
+
 
 ---
 
