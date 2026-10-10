@@ -61,16 +61,9 @@ Sebelum perbaikan:
 
 Sesudah perbaikan (`java Main`):
 
-```text
-=== Rekap Nilai ===
-  2024001    Ani Lestari        akhir= 84.90  mutu=A
-  2024002    Budi Santoso       akhir= 59.30  mutu=D
-  2024003    Citra Wijaya       akhir= 92.00  mutu=A
 
-=== Objek menolak data yang melanggar aturan ===
-  Ditolak: Nilai tugas harus di rentang 0.0-100.0, diberikan: 150.0
-  Ditolak: NIM tidak boleh kosong atau null
-```
+<img width="556" height="146" alt="sesudah java pert2" src="https://github.com/user-attachments/assets/cc5e0e35-542e-4186-9af8-dc5daa5ed341" />
+
 
 ### PHP
 
@@ -81,11 +74,12 @@ Sebelum perbaikan:
 
 Sesudah perbaikan (`php main.php`):
 
-```text
-=== Rekap Nilai ===
-  2024001    Ani Lestari        akhir= 84.90  mutu=A
-  2024002    Budi Santoso       akhir= 59.30  mutu=D
-  2024003    Citra Wijaya       akhir= 92.00  mutu=A
+
+<img width="450" height="153" alt="sesudah php pert2" src="https://github.com/user-attachments/assets/a1612e88-2fb7-40fa-8584-c2de23dbd0f4" />
+
+
+
+
 
 === Objek menolak data yang melanggar aturan ===
   Ditolak: Nilai tugas harus di rentang 0-100, diberikan: 150
