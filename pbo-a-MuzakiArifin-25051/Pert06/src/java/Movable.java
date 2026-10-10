@@ -16,6 +16,6 @@ public interface Movable {
      * ditimpa implementornya. PHP tidak punya padanannya di interface.
      */
     default String ringkasanGerak() {
-        return "(TODO 1 belum dikerjakan)";
+        return String.format("kecepatan maksimum %.0f km/jam", kecepatanMaksimum());
     }
 }

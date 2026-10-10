@@ -1,5 +1,3 @@
-Ini bangun datar
-
 <?php
 declare(strict_types=1);
 

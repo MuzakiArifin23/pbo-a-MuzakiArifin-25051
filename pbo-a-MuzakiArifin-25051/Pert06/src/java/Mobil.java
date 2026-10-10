@@ -12,24 +12,52 @@ public class Mobil extends Kendaraan implements Movable, Fuelable {
         this.kapasitasTangki = kapasitasTangki;
     }
 
-    @Override public int jumlahRoda() { return 4; }
+    @Override
+    public int jumlahRoda() {
+        return 4;
+    }
 
     // TODO 1: lengkapi kontrak Movable.
-    @Override public void bergerak() {
-        // cetak sesuatu seperti "Toyota Avanza melaju di jalan raya"
+    @Override
+    public void bergerak() {
+        System.out.println(merek + " melaju di sirkuit");
     }
 
-    @Override public double kecepatanMaksimum() { return 0; }   // ganti
+    @Override
+    public double kecepatanMaksimum() {
+        return 180;
+    }
 
     // TODO 2: lengkapi kontrak Fuelable.
-    //         isiBahanBakar harus menolak jumlah <= 0 dan
-    //         tidak boleh mengisi melebihi kapasitas tangki.
-    @Override public void isiBahanBakar(double jumlah) {
+    // isiBahanBakar harus menolak jumlah <= 0 dan
+    // tidak boleh mengisi melebihi kapasitas tangki.
+    @Override
+    public void isiBahanBakar(double jumlah) {
+        if (jumlah <= 0) {
+            System.out.println("Jumlah bahan bakar harus lebih dari 0.");
+            return;
+        }
+
+        if (isiTangki + jumlah > kapasitasTangki) {
+            System.out.println("Bahan bakar melebihi kapasitas tangki.");
+            return;
+        }
+
+        isiTangki += jumlah;
+        System.out.println("Bahan bakar berhasil diisi " + jumlah + " liter.");
     }
 
-    @Override public double kapasitasTangki() { return kapasitasTangki; }
+    @Override
+    public double kapasitasTangki() {
+        return kapasitasTangki;
+    }
 
-    @Override public TipeBahanBakar tipeBahanBakar() { return TipeBahanBakar.BENSIN; }
+    @Override
+    public TipeBahanBakar tipeBahanBakar() {
+        return TipeBahanBakar.BENSIN;
+    }
 
-    public double getIsiTangki() { return isiTangki; }
+    public double getIsiTangki() {
+        return isiTangki;
+    }
 }
