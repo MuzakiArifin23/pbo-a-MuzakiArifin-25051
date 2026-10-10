@@ -59,22 +59,27 @@ Seluruh hierarki ditaruh dalam satu berkas, dengan logika yang sama seperti Java
 
 Sebelum perbaikan:
 
-![Java sebelum](images/java-sebelum.png)
+<img width="518" height="146" alt="sebelum java pert4" src="https://github.com/user-attachments/assets/81280eeb-9534-4a42-b45c-09496d25d7e3" />
+
 
 Sesudah perbaikan (`java Main`):
 
-![Java sesudah](images/java-sesudah.png)
+<img width="531" height="147" alt="setelah java pert4" src="https://github.com/user-attachments/assets/9f320e54-b611-48a9-83ec-f21a9702e11e" />
+
 
 ### PHP
 
 Sebelum perbaikan:
 
-![PHP sebelum](images/php-sebelum.png)
+<img width="510" height="144" alt="sebelum php pert4" src="https://github.com/user-attachments/assets/4b237904-73d2-4b78-8bfc-1f75f49609c2" />
+
+
 
 Sesudah perbaikan (`php main.php`):
 
 <!-- TODO: screenshot ini masih menampilkan Rp0,00 (diambil sebelum perbaikan tersimpan). Jalankan ulang `php main.php`, lalu ganti images/php-sesudah.png. Hasil yang benar: Ani Rp7.800.000,00 / Budi Rp5.000.000,00 / total Rp12.800.000,00. -->
-![PHP sesudah](images/php-sesudah.png)
+<img width="524" height="147" alt="setelah php pert4" src="https://github.com/user-attachments/assets/c43638ee-f730-4135-809a-a4b3d8a84bfb" />
+
 
 ---
 
