@@ -41,6 +41,6 @@ public class AntiPaternRefaktor {
             total += b.luas();
         }
 
-        System.out.printf("Total luas (cara polimorfik): %.2f5n", total);
+        System.out.printf("Total luas (cara polimorfik): %.2f%n", total);
     }
 }

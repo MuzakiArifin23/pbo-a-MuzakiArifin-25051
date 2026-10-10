@@ -66,7 +66,7 @@ trait Loggable
      */
     public function log(string $pesan): void
     {
-       printf("[%s] %s: 5s\n", date('H:i:s'), static::class, $pesan); // TODO 6
+       printf("[%s] %s: %s\n", date('H:i:s'), static::class, $pesan); // TODO 6
     }
 }
 

@@ -13,13 +13,15 @@ abstract class Pegawai
         protected readonly string $nama,
         protected readonly float  $gajiPokok,
     ) {
-        // TODO 1: tolak gaji pokok negatif.
+        if ($gajiPokok < 0) {
+            throw new InvalidArgumentException('Gaji pokok tidak boleh negatif');
+        }
     }
 
-    /** TODO 2: kembalikan gaji pokok apa adanya. */
+    /** Perilaku dasar: gaji pokok apa adanya. */
     public function hitungGaji(): float
     {
-        return 0;   // ganti
+        return $this->gajiPokok;
     }
 
     abstract public function jenis(): string;
@@ -49,13 +51,12 @@ class PegawaiTetap extends Pegawai
         parent::__construct($nip, $nama, $gajiPokok);
     }
 
-    /**
-     * TODO 4: gaji dasar induk + tunjangan masa kerja.
-     *         Gunakan parent::hitungGaji(), jangan menyalin rumusnya.
-     */
+    /** Gaji dasar induk + tunjangan masa kerja (2% per tahun, maks 40%). */
     public function hitungGaji(): float
     {
-        return 0;   // ganti
+        $gajiDasar = parent::hitungGaji();
+        $persen = min($this->masaKerjaTahun * self::TUNJANGAN_PER_TAHUN, self::TUNJANGAN_MAKSIMUM);
+        return $gajiDasar + ($gajiDasar * $persen);
     }
 
     public function jenis(): string { return 'TETAP'; }

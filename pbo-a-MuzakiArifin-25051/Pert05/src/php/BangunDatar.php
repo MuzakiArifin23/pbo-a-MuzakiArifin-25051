@@ -174,17 +174,3 @@ class Trapesium extends BangunDatar
     public function getSisiMiringD(): float  { return $this->sisiMiringD; }
     public function getTinggi(): float       { return $this->tinggi; }
 }
-
-// --- Driver Code untuk menguji hasil di browser / terminal ---
-header('Content-Type: text/plain');
-
-$daftarBangun = [
-    new Lingkaran(7),
-    new Persegi(4),
-    new Segitiga(3, 4, 5),
-    new Trapesium(10, 6, 5, 5, 4),
-];
-
-foreach ($daftarBangun as $bangun) {
-    echo $bangun . PHP_EOL;
-}
