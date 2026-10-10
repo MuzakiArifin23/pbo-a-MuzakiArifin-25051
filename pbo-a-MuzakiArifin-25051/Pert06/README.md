@@ -56,11 +56,14 @@ Format `printf` di trait sempat tertulis `%s: 5s`, sehingga isi pesan log tidak 
 
 Sebelum perbaikan:
 
-![Java sebelum](images/java-sebelum.png)
+<img width="471" height="165" alt="sebelum java pert6" src="https://github.com/user-attachments/assets/3daa3b0d-e6fc-4fac-abf8-90f0ebd840fb" />
+
 
 Sesudah perbaikan (`java Main`):
 
-![Java sesudah](images/java-sesudah.png)
+
+<img width="532" height="252" alt="setelah java pert6" src="https://github.com/user-attachments/assets/7bdeac3d-2fa9-409a-95ba-1ad886a31381" />
+
 
 Tanda `?` pada keluaran Java adalah karakter `—` yang diganti oleh encoding terminal Windows, bukan kesalahan program.
 
@@ -68,12 +71,14 @@ Tanda `?` pada keluaran Java adalah karakter `—` yang diganti oleh encoding te
 
 Sebelum perbaikan:
 
-![PHP sebelum](images/php-sebelum.png)
+<img width="471" height="204" alt="sebelum php pert6" src="https://github.com/user-attachments/assets/6e71c154-b0c7-4c04-959b-7cbc910cc669" />
+
 
 Sesudah perbaikan (`php main.php`):
 
 <!-- TODO: screenshot ini diambil sebelum format printf di trait diperbaiki (baris log masih "Mobil: 5s"). Jalankan ulang `php main.php`, lalu ganti images/php-sesudah.png. Hasil yang benar: "[jam] Mobil: servis berkala selesai" dan "[jam] Pesanan: pesanan #1042 dibuat". -->
-![PHP sesudah](images/php-sesudah.png)
+<img width="534" height="305" alt="setelah php pert6" src="https://github.com/user-attachments/assets/51894436-a43e-4328-8e9c-d8d9538ee5f5" />
+
 
 ---
 
