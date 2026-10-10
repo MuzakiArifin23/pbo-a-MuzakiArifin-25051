@@ -53,11 +53,14 @@ Kondisi awal: sama seperti Java, luas dan keliling tampil 0,00 dan total luas 0,
 
 Sebelum perbaikan:
 
-![Java sebelum](images/java-sebelum.png)
+<img width="508" height="200" alt="sebelum java pert5" src="https://github.com/user-attachments/assets/0a01396a-ba6c-4fa8-9639-48a863dcd501" />
+
 
 Sesudah perbaikan (`java Main`):
 
-![Java sesudah](images/java-sesudah.png)
+
+<img width="755" height="239" alt="setelah java pert5" src="https://github.com/user-attachments/assets/135680c0-457e-4975-8efc-eaa9566f77ad" />
+
 
 Perbandingan anti-pattern dan refaktor polimorfik (`java AntiPattern` dan `java AntiPaternRefaktor`):
 
@@ -70,11 +73,14 @@ Total luas (cara polimorfik): 184,94
 
 Sebelum perbaikan:
 
-![PHP sebelum](images/php-sebelum.png)
+<img width="509" height="126" alt="sebelum php pert5" src="https://github.com/user-attachments/assets/95f43480-1502-4096-bf89-e3d6651180ec" />
+
 
 Sesudah perbaikan (`php main.php`):
 
-![PHP sesudah](images/php-sesudah.png)
+
+<img width="445" height="197" alt="setelah php pert5" src="https://github.com/user-attachments/assets/cf07bfa2-b0d9-4131-b7e4-e99047fc008a" />
+
 
 Latihan notifikasi (`php notifikasi.php`):
 
