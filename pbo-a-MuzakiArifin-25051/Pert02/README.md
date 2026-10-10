@@ -21,9 +21,8 @@ Sistem akademik menyimpan data mahasiswa berupa NIM, nama, serta tiga nilai (tug
 ---
 
 ## 2. Implementasi Java
-
-**Kode awal:** [Mahasiswa.java (sebelum)](../../Materi-Pembelajaran&Codingan-sebelumdibenerin/codingansebelum/pertemuan02/java/Mahasiswa.java)
-**Kode akhir:** [Mahasiswa.java (sesudah)](src/java/Mahasiswa.java)
+**Kode awal:** [Mahasiswa.java (sebelum)](https://github.com/MuzakiArifin23/pbo-a-MuzakiArifin-25051/blob/main/codingan%20sebelum%20dibenerin/pertemuan02/Mahasiswa.java)
+**Kode akhir:** [Mahasiswa.java (sesudah)](https://github.com/MuzakiArifin23/pbo-a-MuzakiArifin-25051/blob/main/pbo-a-MuzakiArifin25051/Pert02/java/Mahasiswa.java)
 
 Kondisi awal: kelas belum punya perhitungan nilai dan menerima data apa saja tanpa pengecekan.
 
@@ -39,8 +38,8 @@ Yang saya kerjakan:
 
 ## 3. Implementasi PHP
 
-**Kode awal:** [Mahasiswa.php (sebelum)](../../Materi-Pembelajaran&Codingan-sebelumdibenerin/codingansebelum/pertemuan02/php/Mahasiswa.php)
-**Kode akhir:** [Mahasiswa.php (sesudah)](src/php/Mahasiswa.php)
+**Kode awal:** [Mahasiswa.php (sebelum)](https://github.com/MuzakiArifin23/pbo-a-MuzakiArifin-25051/blob/main/codingan%20sebelum%20dibenerin/pertemuan02/main.php)
+**Kode akhir:** [Mahasiswa.php (sesudah)](https://github.com/MuzakiArifin23/pbo-a-MuzakiArifin-25051/blob/main/pbo-a-MuzakiArifin-25051/Pert02/java/Main.java)
 
 Logikanya sama dengan versi Java, hanya dengan sintaks PHP:
 
@@ -57,7 +56,8 @@ Logikanya sama dengan versi Java, hanya dengan sintaks PHP:
 
 Sebelum perbaikan:
 
-![Java sebelum](../../ssan-sebelum/images-java/pertemuan02.png)
+<img width="556" height="146" alt="sebelum java pert2" src="https://github.com/user-attachments/assets/8444cafb-a151-4341-909a-4bfe6e158f55" />
+
 
 Sesudah perbaikan (`java Main`):
 
@@ -76,7 +76,8 @@ Sesudah perbaikan (`java Main`):
 
 Sebelum perbaikan:
 
-![PHP sebelum](../../ssan-sebelum/images-php/pert-php-02.png)
+<img width="450" height="153" alt="sebelum php pert2" src="https://github.com/user-attachments/assets/d75e41ee-487b-422f-b12e-20d9b4c291b8" />
+
 
 Sesudah perbaikan (`php main.php`):
 
