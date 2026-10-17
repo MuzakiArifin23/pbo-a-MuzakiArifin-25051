@@ -1,173 +1,323 @@
-# Praktikum Sesi 7 — Pemodelan Relasi Objek dan UML
+# Praktikum Desain Web A: Pertemuan 5
 
-**Sub-CPMK-P5 — Mahasiswa mampu menerjemahkan UML class diagram menjadi kode yang konsisten dan sebaliknya. (P3, C4)**
+**Wireframe dan Struktur Informasi Website** (HTML5, CSS3, Flexbox, CSS Grid, Media Query)
 
-**Keterkaitan teori:** Pertemuan 7 — Relasi Objek dan UML Class Diagram  
-**Durasi:** 170 menit (1 SKS praktikum) · **Bobot:** 6% dari nilai praktikum  
-**Bahasa:** Java 25 dan PHP 8.4+
+> Repositori ini berisi tiga halaman wireframe yang saya kerjakan pada Pertemuan 5: dua contoh dari modul (halaman sekolah) dan satu tugas mandiri (toko tanaman hias online).
 
-> Versi cetak modul ini: [`Modul-Praktikum-07-pemodelan-relasi-objek-dan-uml.docx`](Modul-Praktikum-07-pemodelan-relasi-objek-dan-uml.docx). Kerangka kode: [`starter/`](starter/).
+| | |
+|---|---|
+| Nama | **[Muzaki Arifin]** |
+| NIM | [4525210051] |
+| Program Studi | [Teknik Informatika] |
+| Kampus | [Universitas Pancasila] |
+| Mata Kuliah | Praktikum Desain Web A |
+| Topik | Wireframe, struktur informasi, dan layout responsif |
 
 ---
 
-## A. Tujuan sesi
+## Daftar Isi
 
-1. Menganalisis kebutuhan Sistem Perpustakaan menjadi model objek.
-2. Membuat use case diagram, class diagram, dan sequence diagram dengan PlantUML.
-3. Menerjemahkan class diagram menjadi kerangka kode yang konsisten.
-4. Membedakan agregasi dan komposisi melalui wujudnya di kode, bukan hanya di gambar.
-
-## B. Alat dan bahan
-
-- Lingkungan hasil sesi 1.
-- PlantUML terpasang dan bisa merender.
-
-## C. Berkas starter
-
-Salin ke folder tugas Anda; **jangan** menyunting berkas aslinya. Setiap komentar `TODO` harus Anda lengkapi sendiri — kode yang disalin dari sumber lain akan terlihat pada sesi demo.
-
-| Berkas | Keterangan |
-|---|---|
-| `starter/uml/perpustakaan-kerangka.puml` | Kerangka class diagram dengan bagian yang harus dilengkapi. |
-| `starter/java/` | Kerangka paket model dan service dengan TODO. |
-| `starter/php/` | Padanan PHP. |
-| `starter/deskripsi-kebutuhan.md` | Deskripsi kebutuhan Sistem Perpustakaan yang harus dianalisis. |
-
-## D. Langkah kerja
-
-Kerjakan berurutan. Jangan melanjutkan ke langkah berikutnya sebelum checkpoint terpenuhi.
-
-### Langkah 1 — Analisis kebutuhan
-
-- Baca deskripsi-kebutuhan.md dengan saksama. Deskripsi ini akan menjadi dasar seluruh pekerjaan Anda sampai sesi 14.
-- Buat sesi-07/analisis.md berisi: daftar kata benda (calon kelas), daftar kata kerja (calon method), dan daftar aturan bisnis (invariant).
-- Coret kata benda yang ternyata hanya atribut, bukan kelas. Tuliskan alasan pencoretannya.
-
-> **Checkpoint —** analisis.md memuat minimal enam calon kelas dan minimal lima aturan bisnis.
-
-### Langkah 2 — Use case diagram
-
-- Buat sesi-07/uml/usecase.puml dengan minimal dua aktor (Anggota, Petugas) dan enam use case.
-- Gunakan relasi include atau extend setidaknya satu kali, dan jelaskan pilihannya di analisis.md.
-
-**Terminal**
-
-```bash
-plantuml -tsvg sesi-07/uml/usecase.puml
-```
-
-> **Checkpoint —** Diagram ter-render dan menampilkan aktor serta batas sistem.
-
-### Langkah 3 — Class diagram — bagian tersulit
-
-- Salin perpustakaan-kerangka.puml ke sesi-07/uml/class.puml dan lengkapi.
-- Untuk SETIAP relasi, tentukan derajat keterikatannya dan tuliskan multiplicity di kedua ujungnya.
-- Minimal harus ada: satu komposisi, satu agregasi, satu asosiasi, dan satu dependensi.
-- Uji setiap relasi dengan pertanyaan: "Kalau induknya dihapus, apakah bagian ini masih masuk akal?"
-
-> **Checkpoint —** class.puml memuat keempat jenis relasi dengan notasi dan multiplicity yang benar.
-
-### Langkah 4 — Sequence diagram untuk satu alur
-
-- Buat sesi-07/uml/sequence-pinjam.puml yang menggambarkan alur peminjaman buku dari Anggota sampai data tersimpan.
-- Tampilkan minimal empat objek dan satu alur alternatif (misalnya buku tidak tersedia).
-
-> **Checkpoint —** Diagram menampilkan pesan bolak-balik antar objek, bukan sekadar daftar langkah.
-
-### Langkah 5 — Menerjemahkan diagram menjadi kode
-
-- Salin kerangka java/ dan php/ ke sesi-07/. Lengkapi TODO sehingga strukturnya SAMA PERSIS dengan class diagram Anda.
-- Aturan yang wajib dipatuhi:
-  • Komposisi: objek bagian dibuat DI DALAM induk, dan getter mengembalikan salinan tak-berubah.
-  • Agregasi: objek bagian diterima dari luar lewat constructor atau method.
-  • Multiplicity 1..*: constructor menolak koleksi kosong.
-- Isi method boleh minimal, tetapi struktur, tipe, dan tanda tangan harus lengkap.
-
-**Terminal**
-
-```bash
-cd sesi-07/java
-javac -d out $(find . -name "*.java")
-java -cp out Main
-```
-
-> **Checkpoint —** Program berjalan, dan setiap kelas di diagram ada di kode dengan nama yang sama persis.
-
-### Langkah 6 — Membuktikan komposisi benar-benar komposisi
-
-- Buat sesi-07/bukti-relasi.md.
-- Untuk relasi komposisi Anda, tulis kode di Main yang MENCOBA mengubah koleksi internal dari luar. Catat hasilnya.
-- Untuk relasi agregasi, tunjukkan bahwa objek bagian tetap hidup setelah dilepas dari induknya.
-
-> **Checkpoint —** bukti-relasi.md menunjukkan koleksi komposisi menolak diubah, dan objek agregasi tetap ada setelah dilepas.
-
-## E. Latihan mandiri di lab
-
-_Dikerjakan bila langkah kerja selesai lebih awal. Tidak wajib, tetapi menambah nilai pada aspek penerapan konsep._
-
-1. Ambil satu relasi yang Anda tandai agregasi, lalu ubah menjadi komposisi. Catat berapa baris kode yang berubah dan mengapa.
-2. Buat activity diagram untuk alur pengembalian buku, termasuk cabang perhitungan denda.
-
-## F. Tugas rumah
-
-1. TUGAS 2 (mata kuliah teori): modelkan Sistem Presensi Kuliah dengan minimal enam kelas, mencakup satu komposisi, satu agregasi, dan satu asosiasi, lengkap dengan multiplicity. Implementasikan kerangka kodenya di Java DAN PHP.
-2. Untuk setiap relasi pada tugas tersebut, tulis satu kalimat justifikasi: mengapa agregasi dan bukan komposisi, atau sebaliknya.
-3. Persiapan sesi 8: pelajari kembali seluruh materi sesi 1–7. Ujian praktik tengah semester berbentuk live coding di hadapan dosen.
-
-## G. Luaran yang dikumpulkan
-
-Seluruh luaran diserahkan melalui repositori Git pribadi Anda, dengan riwayat commit yang menunjukkan proses pengerjaan — bukan satu commit tunggal di akhir.
-
-| Berkas / folder | Keterangan |
-|---|---|
-| `sesi-07/analisis.md` | Analisis kata benda, kata kerja, aturan bisnis, dan alasan pencoretan. |
-| `sesi-07/uml/` | usecase.puml, class.puml, sequence-pinjam.puml beserta hasil render. |
-| `sesi-07/java/ dan sesi-07/php/` | Kerangka kode Sistem Perpustakaan yang konsisten dengan diagram. |
-| `sesi-07/bukti-relasi.md` | Bukti bahwa komposisi dan agregasi diterapkan benar di kode. |
-
-## H. Rubrik penilaian sesi ini
-
-| Aspek | Bobot | Kriteria |
-|---|---|---|
-| Kebenaran fungsional | 35% | Seluruh perintah pada langkah kerja berjalan dan menghasilkan keluaran yang diminta. |
-| Penerapan konsep sesi ini | 30% | Konsep yang menjadi Sub-CPMK sesi ini diterapkan dengan tepat, bukan sekadar membuat program berjalan. |
-| Keterbacaan dan konvensi | 10% | Penamaan bermakna, format konsisten, komentar seperlunya, riwayat commit wajar. |
-| Demo dan pertanyaan lisan | 25% | Mampu menjelaskan setiap baris kode sendiri dan menjawab pertanyaan demo. MENGGUGURKAN: tanpa demo, tugas tidak dinilai. |
-
-## I. Pertanyaan demo
-
-> Pertanyaan berikut akan diajukan saat Anda mendemokan pekerjaan sesi ini. Daftar ini sengaja dibuka agar Anda mempersiapkan **pemahaman**, bukan hafalan. Anda boleh memakai alat bantu apa pun saat mengerjakan — tetapi kode yang tidak dapat Anda jelaskan sendiri tidak dinilai.
-
-1. Tunjuk satu komposisi di diagram Anda, lalu tunjuk baris kode yang mewujudkannya. Apa yang membuatnya komposisi dan bukan agregasi?
-2. Kalau saya menghapus objek induk pada relasi komposisi Anda, apa yang terjadi pada bagiannya? Tunjukkan di kode.
-3. Mengapa getter untuk koleksi komposisi mengembalikan salinan? Apa yang terjadi kalau tidak?
-4. Di diagram Anda tertulis multiplicity 1..*. Baris kode mana yang menjamin angka minimalnya satu?
-5. Ada kelas di diagram Anda yang tidak ada di kode, atau sebaliknya? Kita periksa satu per satu.
-6. Pada sequence diagram, objek mana yang memutuskan bahwa peminjaman ditolak? Mengapa bukan objek yang lain?
-7. Saya ingin menambah aturan: satu anggota maksimum meminjam tiga buku. Di diagram, itu muncul di mana? Di kode, di mana?
-
-## J. Kesalahan yang sering terjadi
-
-| Gejala | Penyebab yang lazim | Cara memperbaiki |
-|---|---|---|
-| Semua relasi digambar dengan garis polos | Belum membedakan derajat keterikatan. | Tentukan tiap relasi dengan pertanyaan "kalau induknya dihapus...". Gunakan *-- , o-- , --> , ..> sesuai hasilnya. |
-| Multiplicity tidak ditulis | Dianggap detail yang bisa ditambahkan nanti. | Multiplicity adalah aturan bisnis. Tanpa itu, model kehilangan informasi penting dan tidak bisa diterjemahkan ke validasi. |
-| Diagram menyebut komposisi, tetapi getter membocorkan koleksi | Diagram dibuat menurut niat, kode ditulis menurut kebiasaan. | Kembalikan List.copyOf(...) di Java; jadikan objek bagian readonly di PHP. |
-| PlantUML gagal merender | Kesalahan sintaks, atau Graphviz belum terpasang. | Periksa pesan kesalahannya; untuk diagram tertentu PlantUML membutuhkan Graphviz (dot). |
-| Kompilasi Java gagal karena struktur folder tidak cocok dengan package | Nama package tidak sama dengan jalur folder. | Samakan keduanya, atau kompilasi dengan menyebut seluruh berkas: javac -d out $(find . -name "*.java"). |
-
-## Lembar verifikasi demo
-
-Diisi oleh dosen atau asisten pada saat demo. Tugas tanpa lembar terverifikasi tidak dinilai.
-
-|  |  |
-|---|---|
-| Nama / NIM |  |
-| Tanggal demo |  |
-| Nilai sesi ini |  |
-| Catatan penguji |  |
-| Paraf penguji |  |
+1. [Sekilas Proyek](#sekilas-proyek)
+2. [Isi Repositori](#isi-repositori)
+3. [Konsep yang Dipakai](#konsep-yang-dipakai)
+4. [Contoh 1: Wireframe Low Fidelity](#contoh-1-wireframe-low-fidelity)
+5. [Contoh 2: Wireframe Portal Sekolah](#contoh-2-wireframe-portal-sekolah)
+6. [Tugas: Wireframe Toko Online Rimbun](#tugas-wireframe-toko-online-rimbun)
+7. [Perbandingan Ketiga Halaman](#perbandingan-ketiga-halaman)
+8. [Yang Saya Pelajari](#yang-saya-pelajari)
+9. [Menjalankan Proyek](#menjalankan-proyek)
 
 ---
 
-_Modul ini disusun 10 September 2026. Versi teknologi yang dirujuk (Java 25 LTS, PHP 8.4/8.5, Laravel 13, Spring Boot 4.1) diverifikasi pada tanggal tersebut dan perlu diperiksa ulang sebelum semester berjalan._
+## Sekilas Proyek
+
+Wireframe adalah gambaran kasar tata letak sebuah halaman: di mana header, menu, konten, dan footer diletakkan, sebelum urusan warna dan gambar dipikirkan. Di pertemuan ini saya mencoba tiga tingkat kerapian yang berbeda:
+
+- **Contoh 1** adalah wireframe paling sederhana. Layout memakai **Flexbox** dan warna dikelola lewat variabel CSS.
+- **Contoh 2** adalah wireframe portal sekolah yang lebih lengkap. Layout memakai **CSS Grid** dengan dua *breakpoint*.
+- **Tugas** adalah wireframe toko online tanaman hias bernama **Rimbun**. Setiap area diberi label bernomor dan ada bagian anotasi yang menjelaskan fungsi tiap area.
+
+Semua halaman memisahkan struktur (`index.html`) dari tampilan (`css/style.css`).
+
+---
+
+## Isi Repositori
+
+```
+Pertemuan 5/
+├── contoh 1/
+│   ├── index.html
+│   ├── css/style.css
+│   ├── img/              logo, spmb, seragam, kepsek
+│   └── dokumentasi/      Web.png, mobile1.png, mobile2.png
+├── contoh 2/
+│   ├── index.html
+│   ├── css/style.css
+│   ├── img/              logo, spmb, seragam, kepsek
+│   └── dokumentasi/      web.png, mobile1.png sampai mobile5.png
+├── Tugas/
+│   ├── index.html
+│   ├── css/style.css
+│   ├── images/           RumahcHIjau, Monstera Deliciosa, Lidah Mertua,
+│   │                     Kaktus Mini, Pot Keramik Putih
+│   └── dokumentasi/      versi WEB.png, mobile1.png sampai mobile4.png
+├── Materi/               modul dan petunjuk praktikum (PDF)
+└── README.md
+```
+
+---
+
+## Konsep yang Dipakai
+
+### Elemen struktur informasi
+
+| Elemen | Peran di halaman |
+|---|---|
+| Header | Menampilkan identitas situs (logo, nama) |
+| Navbar | Menu utama untuk berpindah bagian |
+| Sidebar | Menu atau filter tambahan di samping konten |
+| Hero | Pesan pembuka dan tombol ajakan (*call to action*) |
+| Card | Kotak informasi singkat yang bisa diulang |
+| Footer | Kontak dan keterangan penutup |
+
+### Flexbox atau Grid?
+
+Aturan yang saya pegang setelah mengerjakan ketiganya:
+
+- **Flexbox** dipakai saat elemen tersusun searah, misalnya baris menu, header, atau deretan card sederhana.
+- **Grid** dipakai saat butuh kolom dan baris sekaligus, misalnya kerangka halaman (sidebar + konten) atau galeri card.
+
+### Media query
+
+Aturan CSS yang hanya aktif pada lebar layar tertentu. Pola dasarnya:
+
+```css
+@media (max-width: 768px) {
+  /* aturan untuk layar yang lebih sempit */
+}
+```
+
+Wajib ada tag viewport di setiap `<head>` supaya layar ponsel tidak menampilkan halaman dengan skala desktop:
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+
+---
+
+## Contoh 1: Wireframe Low Fidelity
+
+Halaman informasi SMAN 5 Bekasi dengan sidebar dan tiga card.
+
+**Susunan halaman**
+
+```
+header          logo sekolah
+nav.navbar      Beranda | Tentang | Produk | Kontak
+main.layout
+ ├─ aside       sidebar (Menu 1 sampai Menu 4)
+ └─ section     hero (gambar, judul, deskripsi, tombol)
+                card-container (SPMB, Seragam, Kepala Sekolah)
+footer          telepon, WhatsApp, email
+```
+
+**Cara kerjanya**
+
+Warna dikumpulkan sebagai variabel di `:root`, jadi mengganti tema cukup mengubah satu blok:
+
+```css
+:root {
+  --biru-tua: #1f3a5f;
+  --latar:    #f3f5f8;
+  --aksen:    #e0a526;
+  /* ... total 8 variabel warna */
+}
+```
+
+Sidebar punya lebar tetap, sedangkan konten mengambil sisa ruang. Card dibuat sama lebar dengan `flex: 1`:
+
+```css
+.layout         { display: flex; gap: 20px; }
+.sidebar        { width: 220px; flex-shrink: 0; }
+.content        { flex: 1; min-width: 0; }
+.card-container { display: flex; gap: 20px; }
+.card           { flex: 1; }
+```
+
+**Responsif (1 breakpoint, 768px)**: sidebar naik ke atas konten, card menumpuk jadi satu kolom, dan menu navbar boleh turun baris.
+
+| Desktop | Mobile | Mobile |
+|---|---|---|
+| <img src="contoh%201/dokumentasi/Web.png" width="420" alt="Contoh 1 desktop"> | <img src="contoh%201/dokumentasi/mobile1.png" width="180" alt="Contoh 1 mobile bagian atas"> | <img src="contoh%201/dokumentasi/mobile2.png" width="180" alt="Contoh 1 mobile bagian bawah"> |
+
+---
+
+## Contoh 2: Wireframe Portal Sekolah
+
+Versi yang lebih lengkap: ada profil pengguna, menu siswa, dan bagian layanan.
+
+**Susunan halaman**
+
+```
+header          logo + "Portal Sekolah" + label profil "Siswa"
+nav             Beranda | Informasi | Jadwal | Layanan | Kontak  (anchor link)
+main.main-layout
+ ├─ aside       Menu Sekolah (6 tautan)
+ └─ section
+     ├─ #beranda    hero dua kolom (teks + logo)
+     ├─ #informasi  3 card: SPMB, Seragam, Kepala Sekolah
+     └─ #layanan    4 kotak layanan siswa
+footer#kontak   nama portal + email
+```
+
+**Cara kerjanya**
+
+`.container` dipakai berulang di header, navbar, konten, dan footer agar lebar isinya seragam:
+
+```css
+.container { width: 90%; max-width: 1200px; margin: auto; padding: 20px; }
+```
+
+Seluruh pembagian kolom memakai Grid, dengan satuan `fr` untuk membagi ruang secara proporsional:
+
+```css
+.main-layout  { display: grid; grid-template-columns: 230px 1fr; gap: 25px; }
+.hero         { display: grid; grid-template-columns: 2fr 1fr; }
+.card-grid    { display: grid; grid-template-columns: repeat(3, 1fr); }
+.layanan-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+```
+
+**Responsif (2 breakpoint)**
+
+| Lebar layar | Perubahan |
+|---|---|
+| 900px ke bawah (tablet) | Layout jadi 1 kolom, sidebar berubah menjadi deretan tombol, card dan layanan jadi 2 kolom |
+| 600px ke bawah (ponsel) | Header, navbar, dan footer ditumpuk vertikal, hero/card/layanan jadi 1 kolom |
+
+| Desktop |
+|---|
+| <img src="contoh%202/dokumentasi/web.png" width="560" alt="Contoh 2 desktop"> |
+
+| Mobile 1 | Mobile 2 | Mobile 3 | Mobile 4 | Mobile 5 |
+|---|---|---|---|---|
+| <img src="contoh%202/dokumentasi/mobile1.png" width="130" alt="Contoh 2 mobile 1"> | <img src="contoh%202/dokumentasi/mobile2.png" width="130" alt="Contoh 2 mobile 2"> | <img src="contoh%202/dokumentasi/mobile3.png" width="130" alt="Contoh 2 mobile 3"> | <img src="contoh%202/dokumentasi/mobile4.png" width="130" alt="Contoh 2 mobile 4"> | <img src="contoh%202/dokumentasi/mobile5.png" width="130" alt="Contoh 2 mobile 5"> |
+
+---
+
+## Tugas: Wireframe Toko Online Rimbun
+
+Untuk tugas, saya merancang wireframe toko tanaman hias online. Berbeda dari dua contoh sebelumnya, setiap area diberi **kotak garis putus-putus dan label bernomor** (1 sampai 6), lalu di bagian bawah halaman ada bagian **Anotasi fungsi area** yang menjelaskan alasan tiap area ada di sana. Jadi wireframe ini bisa dibaca sebagai dokumen rancangan, bukan hanya tampilan.
+
+**Susunan halaman**
+
+| No | Area | Isi |
+|---|---|---|
+| 1 | Header | Logo "Rimbun", kolom pencarian, tautan Keranjang (0) |
+| 2 | Navbar | Beranda, Tentang, Produk, Kontak (menu aktif ditandai) |
+| 3 | Sidebar | Kategori (Indoor, Outdoor, Kaktus & Sukulen, Pot) dan filter rentang harga (checkbox) |
+| 4 | Hero | Judul "Hijaukan rumahmu mulai hari ini", deskripsi singkat, tombol *Belanja sekarang*, foto |
+| 5 | Card produk | Monstera Deliciosa, Lidah Mertua, Kaktus Mini, Pot Keramik Putih (foto, nama, harga, tombol) |
+| 6 | Footer | Alamat, bantuan (cara pesan, pengiriman, pengembalian), media sosial, hak cipta |
+
+Di antara area 5 dan 6 ada bagian **Tentang Rimbun** dan **Anotasi fungsi area**.
+
+**Cara kerjanya**
+
+Palet warna hijau-krem dengan aksen koral disimpan sebagai variabel CSS:
+
+```css
+:root {
+  --forest: #1f4d3a;
+  --leaf:   #3e8e63;
+  --mint:   #dff0e6;
+  --cream:  #fff9f2;
+  --coral:  #e8604c;
+  /* ... */
+}
+```
+
+Label bernomor dibuat murni dengan CSS. Angkanya diambil dari atribut `data-n` pada HTML lewat `attr()`, jadi tidak perlu elemen tambahan:
+
+```css
+.note::before { content: attr(data-n); /* lingkaran bernomor */ }
+```
+
+Grid dipakai untuk kerangka halaman, sedangkan Flexbox untuk header dan navbar. Galeri produk memakai `auto-fill` sehingga jumlah kolom menyesuaikan lebar layar secara otomatis:
+
+```css
+.layout { display: grid; grid-template-columns: 240px 1fr; }
+.grid   { display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+```
+
+Placeholder foto digambar dengan dua `linear-gradient` bersilang di atas latar mint, sehingga kotak gambar kosong tetap terbaca sebagai wireframe.
+
+**Aksesibilitas kecil yang saya tambahkan**: `aria-label` pada pencarian, keranjang, dan navbar; `alt` yang deskriptif pada semua gambar; serta `:focus-visible` agar navigasi keyboard terlihat jelas.
+
+**Responsif (3 breakpoint)**
+
+| Lebar layar | Perubahan |
+|---|---|
+| 900px ke bawah | Sidebar mengecil jadi 200px, hero menjadi 1 kolom |
+| 640px ke bawah | Layout jadi 1 kolom (sidebar pindah ke atas konten), header ditumpuk, produk 2 kolom, footer 1 kolom |
+| 380px ke bawah | Produk menjadi 1 kolom |
+
+| Desktop |
+|---|
+| <img src="Tugas/dokumentasi/versi%20WEB.png" width="560" alt="Tugas desktop"> |
+
+| Mobile 1 | Mobile 2 | Mobile 3 | Mobile 4 |
+|---|---|---|---|
+| <img src="Tugas/dokumentasi/mobile1.png" width="150" alt="Tugas mobile 1"> | <img src="Tugas/dokumentasi/mobile2.png" width="150" alt="Tugas mobile 2"> | <img src="Tugas/dokumentasi/mobile3.png" width="150" alt="Tugas mobile 3"> | <img src="Tugas/dokumentasi/mobile4.png" width="150" alt="Tugas mobile 4"> |
+
+> Karena masih berupa wireframe, kolom pencarian, tombol keranjang, dan filter harga belum berfungsi (tanpa JavaScript). Semuanya hanya menandai posisi elemen.
+
+---
+
+## Perbandingan Ketiga Halaman
+
+| | Contoh 1 | Contoh 2 | Tugas |
+|---|---|---|---|
+| Tema | SMAN 5 Bekasi | Portal sekolah | Toko tanaman hias |
+| Layout utama | Flexbox | Grid | Grid (kerangka), Flexbox (header, navbar) |
+| Menu navbar | 4 | 5 (anchor link) | 4 |
+| Sidebar | 4 menu teks | 6 tautan menu siswa | Kategori dan filter harga |
+| Card | 3, tanpa tautan | 3, dengan tautan | 4, dengan harga dan tombol |
+| Bagian tambahan | Tidak ada | Layanan Siswa (4 kotak) | Tentang, Anotasi, footer 3 kolom |
+| Warna | Variabel CSS | Kode warna langsung | Variabel CSS |
+| Breakpoint | 1 (768px) | 2 (900px, 600px) | 3 (900px, 640px, 380px) |
+| Tingkat detail | Paling sederhana | Menengah | Paling lengkap, ada anotasi |
+
+---
+
+## Yang Saya Pelajari
+
+1. Menentukan posisi elemen lebih dulu membuat proses styling jauh lebih terarah. Saya tahu area mana yang perlu dibuat kolom, mana yang cukup satu baris.
+2. Flexbox dan Grid tidak saling menggantikan. Pada tugas saya memakai keduanya di satu halaman sesuai kebutuhan masing-masing area.
+3. `repeat(auto-fill, minmax(...))` sangat membantu: jumlah kolom card menyesuaikan layar tanpa harus menulis banyak media query.
+4. Variabel CSS (`:root` dan `var()`) membuat palet warna mudah diubah dari satu tempat, berbeda dengan Contoh 2 yang kodenya tersebar.
+5. Urutan elemen di HTML menentukan tampilan di ponsel. Sidebar saya letakkan sebelum konten agar otomatis naik ke atas saat layout menjadi satu kolom.
+6. Memisahkan HTML dan CSS membuat perubahan tampilan tidak mengganggu struktur.
+
+---
+
+## Menjalankan Proyek
+
+```bash
+git clone [isi URL repositori]
+cd [nama folder repositori]
+```
+
+Lalu buka salah satu file berikut di browser (klik dua kali, atau pakai ekstensi *Live Server* di VS Code):
+
+- `contoh 1/index.html`
+- `contoh 2/index.html`
+- `Tugas/index.html`
+
+Untuk mencoba tampilan ponsel, tekan `F12` lalu aktifkan *Toggle Device Toolbar* (`Ctrl + Shift + M`).
+
+> Folder `css/` dan gambar harus satu level dengan `index.html`. Perhatikan juga huruf besar/kecil pada nama file, karena beberapa server membedakannya.
+
+---
+
+<sub>Praktikum Desain Web A · Pertemuan 5 · [Isi nama] ([Isi NIM])</sub>
