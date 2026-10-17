@@ -110,6 +110,8 @@ php main.php
 
 ### 3.1. `perpustakaan-class.puml`
 
+<img width="579" height="851" alt="clas diagram" src="https://github.com/user-attachments/assets/220d2282-8e57-4496-8ca4-30422bfdb9b9" />
+
 **Penjelasan:**
 
 Class diagram PlantUML dengan hierarki pewarisan `Koleksi` (`Buku`, `Majalah`, `Skripsi`), relasi komposisi (`Buku *-- Bab`), relasi agregasi (`Anggota o-- Peminjaman`, `PerpustakaanService o-- Koleksi`), serta enum `StatusKoleksi` dan `JenisKeanggotaan`.
