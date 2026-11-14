@@ -60,23 +60,24 @@ Hasil yang diharapkan: Java `Tests run: 14, Failures: 0, Errors: 0`; PHP `OK (13
 
 ## Screenshot
 
-Tampilan VS Code di Windows (tema Dark+).
-
 **Repository.java**
 
-![Kode Repository.java](screenshots/01-repository-java.png)
+![Kode Repository.java](<img width="1920" height="1080" alt="01-repository-java" src="https://github.com/user-attachments/assets/9ad800ae-4008-4442-9202-1dd9ab56718c" />
+)
 
 **RepositoryTest.java**
 
-![Kode RepositoryTest.java](screenshots/02-repositorytest-java.png)
+![Kode RepositoryTest.java](<img width="1920" height="1080" alt="02-repositorytest-java" src="https://github.com/user-attachments/assets/9291c32e-d0b2-4141-b401-470b8c83fa97" />
+)
 
 **KoleksiBuku.php**
 
-![Kode KoleksiBuku.php](screenshots/03-koleksibuku-php.png)
+![Kode KoleksiBuku.php](<img width="1920" height="1080" alt="03-koleksibuku-php" src="https://github.com/user-attachments/assets/785fb175-976c-4122-bc28-6151a86a2c07" />
+)
 
 **KoleksiBukuTest.php**
 
-![Kode KoleksiBukuTest.php](screenshots/04-koleksibukutest-php.png)
+![Kode KoleksiBukuTest.php](<img width="1920" height="1080" alt="04-koleksibukutest-php" src="https://github.com/user-attachments/assets/e636b1df-05a5-49ab-88a2-8701667b3f1a" />)
 
 <!--
 Tambahkan screenshot hasil uji dari komputer Anda sendiri (Win + Shift + S pada terminal VS Code), lalu hapus tanda komentar ini:
