@@ -1,87 +1,118 @@
-**Nama:** Muzaki Arifin<br>
-**NPM:** 4525210051<br>
-**Kelas:** PBO A 2026/2027<br>
+# PRAKTIKUM PERTEMUAN 11
+## Collections, Generics, dan Unit Test Pertama
+
+**Nama:** Muzaki Arifin  
+**NPM:** 4525210051  
+**Kelas:** PBO A 2026/2027  
 **Dosen Pengampu:** Adi Wahyu Pribadi, S.Si., M.Kom
 
-Praktikum Pertemuan 11: Collections, Generics, dan unit test pertama. Yang dikerjakan hanya berkas di `src/starter/`.
+---
 
-## Berkas yang dikerjakan
+## 1. Deskripsi Praktikum
 
-| Berkas | Isi |
-|---|---|
-| `src/starter/java/Repository.java` | TODO 1-4: `simpan`, `cariById` (Optional), `cariSemua` (`List.copyOf`), `hapus` |
-| `src/starter/java/RepositoryTest.java` | TODO 1-5 + 3 uji tambahan = 8 uji |
-| `src/starter/java/Buku.java`, `BukuTidakDitemukanException.java`, `LibraryService.java` | Model, exception, dan service (`pinjam`, 3 laporan fungsional) |
-| `src/starter/java/LibraryServiceTest.java` | TODO 6: uji exception `pinjam()` + laporan = 6 uji |
-| `src/starter/php/KoleksiBuku.php` | TODO 1-6: `simpan`, `cariByIsbn`, `filter`, `map`, `jumlahkan`, `kelompokkan` |
-| `src/starter/php/Buku.php` | Kelas `Buku` (isbn, judul, penulis, harga) |
-| `src/starter/php/KoleksiBukuTest.php` | TODO 1-5 + 5 uji tambahan = 10 uji |
-| `src/starter/php/BukuTidakDitemukanException.php`, `PerpustakaanService.php`, `PerpustakaanServiceTest.php` | Exception, service `pinjam()`, dan 3 uji (TODO 6) |
+Praktikum pertemuan 11 membahas penggunaan Collections, Generics, dan Unit Testing pada bahasa pemrograman Java dan PHP.
 
-## Kode inti
+Tujuan praktikum ini adalah memahami penggunaan struktur data, membuat kelas generik, mengelola data menggunakan operasi fungsional, serta melakukan pengujian program menggunakan JUnit 5 dan PHPUnit.
 
-```java
-public void simpan(T item)            { data.put(pengambilKunci.apply(item), item); }
-public Optional<T> cariById(String id){ return Optional.ofNullable(data.get(id)); }
-public List<T> cariSemua()            { return List.copyOf(data.values()); }
-public boolean hapus(String id)       { return data.remove(id) != null; }
+## 2. Tujuan Praktikum
+
+1. Memahami penggunaan Collections Framework.
+2. Menerapkan konsep Generics pada Java.
+3. Menggunakan Optional untuk menghindari pengembalian nilai null.
+4. Memahami operasi filter, map, dan grouping.
+5. Membuat unit test menggunakan JUnit 5.
+6. Membuat unit test menggunakan PHPUnit.
+
+## 3. Materi Praktikum
+
+### A. Java
+
+Beberapa materi yang dipelajari:
+- Repository Generic `<T>`.
+- Collections menggunakan Map dan List.
+- Optional untuk pencarian data.
+- Penghapusan data berdasarkan ID.
+- Unit Testing menggunakan JUnit 5.
+- Pengujian menggunakan assertEquals, assertTrue, dan assertThrows.
+
+### B. PHP
+
+Materi yang dipelajari:
+- Typed Collection.
+- Nullable Type `?Buku`.
+- Array Filter dan Array Map.
+- Array Reduce.
+- Grouping Data.
+- Unit Testing menggunakan PHPUnit.
+
+## 4. Struktur Folder
+
+```text
+Pert11/
+│
+├── .vscode/
+├── lib/
+├── screenshots/
+│   ├── 01-repository-java.png
+│   ├── 02-repositorytest-java.png
+│   ├── 03-koleksibuku-php.png
+│   └── 04-koleksibukutest-php.png
+│
+├── src/
+│   ├── Modul-Praktikum-11.docx
+│   ├── PPT-Praktikum-11.pptx
+│   └── starter/
+│       ├── java/
+│       ├── php/
+│       └── pom-tambahan.xml
+│
+└── README.md
 ```
 
-```php
-public function simpan(Buku $b): void { $this->items[$b->isbn] = $b; }
-public function cariByIsbn(string $isbn): ?Buku { return $this->items[$isbn] ?? null; }
-public function filter(callable $predikat): self
-{
-    return new self(array_values(array_filter($this->items, $predikat)));   // array DULU
-}
-public function map(callable $f): array
-{
-    return array_map($f, array_values($this->items));                       // callable DULU
-}
-```
+## 5. Penjelasan Program
 
-## Cara menjalankan
+**Java**
 
-Java: salin isi `src/starter/pom-tambahan.xml` ke `pom.xml`, letakkan kelas utama di `src/main/java/id/ac/univpancasila/perpustakaan/` dan berkas `*Test.java` di `src/test/java/` dengan package yang sama.
+Program Repository digunakan untuk menyimpan, mencari, menampilkan, dan menghapus data buku menggunakan konsep Generics.
 
-```powershell
-mvn test
-```
+Program juga menggunakan Optional agar pencarian data lebih aman dan tidak mengembalikan null secara langsung.
 
-PHP: tambahkan `autoload` / `autoload-dev` di `composer.json` (`Perpustakaan\Model\` dan `Perpustakaan\Exception\` ke `src/`, `Perpustakaan\Tests\` ke `tests/`), lalu:
+**PHP**
 
-```powershell
-composer require --dev phpunit/phpunit
-composer dump-autoload
-./vendor/bin/phpunit tests
-```
+Program KoleksiBuku digunakan untuk mengelola kumpulan data buku menggunakan typed collection.
 
-Hasil yang diharapkan: Java `Tests run: 14, Failures: 0, Errors: 0`; PHP `OK (13 tests)`.
+Beberapa operasi yang digunakan adalah:
+- `simpan()` untuk menyimpan buku.
+- `cariByIsbn()` untuk mencari buku berdasarkan ISBN.
+- `filter()` untuk menyaring data.
+- `map()` untuk mengubah data.
+- `jumlahkan()` untuk menghitung nilai.
+- `kelompokkan()` untuk mengelompokkan buku berdasarkan penulis.
 
-## Screenshot
+## 6. Dokumentasi Praktikum
+
+Berikut dokumentasi kode program yang dikerjakan:
 
 **Repository.java**
 
-![Kode Repository.java](<img width="1920" height="1080" alt="01-repository-java" src="https://github.com/user-attachments/assets/9ad800ae-4008-4442-9202-1dd9ab56718c" />
-)
+![Repository Java](screenshots/01-repository-java.png)
 
 **RepositoryTest.java**
 
-![Kode RepositoryTest.java](<img width="1920" height="1080" alt="02-repositorytest-java" src="https://github.com/user-attachments/assets/9291c32e-d0b2-4141-b401-470b8c83fa97" />
-)
+![Repository Test Java](screenshots/02-repositorytest-java.png)
 
 **KoleksiBuku.php**
 
-![Kode KoleksiBuku.php](<img width="1920" height="1080" alt="03-koleksibuku-php" src="https://github.com/user-attachments/assets/785fb175-976c-4122-bc28-6151a86a2c07" />
-)
+![Koleksi Buku PHP](screenshots/03-koleksibuku-php.png)
 
 **KoleksiBukuTest.php**
 
-![Kode KoleksiBukuTest.php](<img width="1920" height="1080" alt="04-koleksibukutest-php" src="https://github.com/user-attachments/assets/e636b1df-05a5-49ab-88a2-8701667b3f1a" />)
+![Koleksi Buku Test PHP](screenshots/04-koleksibukutest-php.png)
 
-<!--
-Tambahkan screenshot hasil uji dari komputer Anda sendiri (Win + Shift + S pada terminal VS Code), lalu hapus tanda komentar ini:
+## 7. Kesimpulan
 
-![Hasil mvn test](screenshots/05-hasil-mvn-test.png)
-![Hasil PHPUnit](screenshots/06-hasil-phpunit.png)
--->
+Melalui praktikum pertemuan 11, saya mempelajari penggunaan Collections dan Generics untuk mengelola data secara lebih terstruktur. Selain itu, saya memahami penggunaan Optional pada Java dan Nullable Type pada PHP untuk menangani pencarian data.
+
+Saya juga mempelajari pentingnya Unit Testing menggunakan JUnit 5 dan PHPUnit untuk memastikan fungsi program berjalan sesuai dengan yang diharapkan.
+
+---
