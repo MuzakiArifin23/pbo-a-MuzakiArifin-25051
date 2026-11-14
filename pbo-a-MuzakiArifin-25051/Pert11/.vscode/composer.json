@@ -1,0 +1,11 @@
+{
+    "autoload": {
+        "psr-4": { "Perpustakaan\\Model\\": "src/starter/php/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Perpustakaan\\Tests\\": "src/starter/php/" }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.5"
+    }
+}
