@@ -11,10 +11,6 @@ Praktikum ini merefaktor Sistem Perpustakaan dari sesi 10–11 agar patuh pada p
 
 ### BookRepository.java
 
-#### Sebelum
-
-![BookRepository Java sebelum](./ss-codingan-sebelum/java/prak12-BookRepository.png)
-
 #### Sesudah
 
 ![BookRepository.java Java setelah](./ss-codingan-sesudah/java/prak12-BookRepository.png)
@@ -25,23 +21,16 @@ Versi sebelum hanya kerangka dengan komentar TODO. Setelah dikerjakan, interface
 
 #### Sebelum
 
-![InMemoryBookRepository Java sebelum](./ss-codingan-sebelum/java/prak12-InMemoryBookRepository.png)
+![InMemoryBookRepository.java Java setelah bagian 2](./ss-codingan-sesudah/java/prak12-InMemoryBookRepository-2.png)
 
 #### Sesudah
 
 ![InMemoryBookRepository.java Java setelah bagian 1](./ss-codingan-sesudah/java/prak12-InMemoryBookRepository-1.png)
 
-![InMemoryBookRepository.java Java setelah bagian 2](./ss-codingan-sesudah/java/prak12-InMemoryBookRepository-2.png)
 
 Implementasi disimpan di `LinkedHashMap` dengan kunci nomor induk buku sehingga pencarian berdasarkan ISBN cepat dan urutan simpan terjaga. `simpan` dan `kurangiStok` menolak `null` dengan `IllegalArgumentException`, `cariByIsbn` mengembalikan `Optional.empty()` untuk ISBN `null` atau yang tidak ada, dan `cariSemua` mengembalikan salinan tak-berubah (`Collections.unmodifiableList`) agar koleksi internal tidak bocor.
 
 ### AturanDenda.java, Denda*.java, dan AturanDendaFactory.java
-
-#### Sebelum
-
-![AturanDenda Java sebelum](./ss-codingan-sebelum/java/prak12-AturanDenda.png)
-
-#### Sesudah
 
 ![AturanDenda.java Java setelah](./ss-codingan-sesudah/java/prak12-AturanDenda.png)
 
@@ -59,12 +48,6 @@ Interface `AturanDenda` (Strategy) punya dua method: `hitung(int hariTerlambat)`
 
 ### LibraryService.java
 
-#### Sebelum
-
-![LibraryService Java sebelum](./ss-codingan-sebelum/java/prak12-LibraryService.png)
-
-#### Sesudah
-
 ![LibraryService.java Java setelah bagian 1](./ss-codingan-sesudah/java/prak12-LibraryService-1.png)
 
 ![LibraryService.java Java setelah bagian 2](./ss-codingan-sesudah/java/prak12-LibraryService-2.png)
@@ -77,12 +60,6 @@ Sebelumnya `LibraryService` membuat sendiri penyimpanannya dengan `new Repositor
 
 ### Main.java
 
-#### Sebelum
-
-![Main Java sebelum](./ss-codingan-sebelum/java/prak12-Main.png)
-
-#### Sesudah
-
 ![Main.java Java setelah bagian 1](./ss-codingan-sesudah/java/prak12-Main-1.png)
 
 ![Main.java Java setelah bagian 2](./ss-codingan-sesudah/java/prak12-Main-2.png)
@@ -90,12 +67,6 @@ Sebelumnya `LibraryService` membuat sendiri penyimpanannya dengan `new Repositor
 `Main` menjadi satu-satunya tempat kelas konkret disebut: membuat `InMemoryBookRepository`, memilih aturan lewat `AturanDendaFactory.untuk("mahasiswa")`, lalu menyuntikkan keduanya ke `new LibraryService(repo, aturanDenda)`. Menu konsol dan ekspor `laporan_buku.txt` tetap seperti sebelumnya.
 
 ### LibraryServiceTest.java
-
-#### Sebelum
-
-![LibraryServiceTest Java sebelum](./ss-codingan-sebelum/java/prak12-LibraryServiceTest.png)
-
-#### Sesudah
 
 ![LibraryServiceTest.java Java setelah bagian 1](./ss-codingan-sesudah/java/prak12-LibraryServiceTest-1.png)
 
@@ -107,37 +78,17 @@ Ada tiga uji. Pertama, `LibraryService` bekerja dengan `InMemoryBookRepository` 
 
 ## PHP
 
-### BookRepository.php
-
-#### Sebelum
-
-![BookRepository PHP sebelum](./ss-codingan-sebelum/php/prak12-BookRepository.png)
-
-#### Sesudah
-
 ![BookRepository.php PHP setelah](./ss-codingan-sesudah/php/prak12-BookRepository.png)
 
 Padanan PHP dari kontrak penyimpanan: `simpan(Buku): void`, `cariByIsbn(string): ?Buku` (tipe nullable menggantikan `Optional`), `cariSemua(): array`, dan `kurangiStok(Buku): void`, dengan `declare(strict_types=1)`.
 
 ### InMemoryBookRepository.php
 
-#### Sebelum
-
-![InMemoryBookRepository PHP sebelum](./ss-codingan-sebelum/php/prak12-InMemoryBookRepository.png)
-
-#### Sesudah
-
 ![InMemoryBookRepository.php PHP setelah](./ss-codingan-sesudah/php/prak12-InMemoryBookRepository.png)
 
 Kelas `final` ini menyimpan buku di array asosiatif berkunci nomor induk. `cariByIsbn` memakai operator `?? null`, sedangkan `cariSemua` mengembalikan `array_values(...)` sehingga indeks rapi dan array internal tidak dibagikan.
 
 ### AturanDenda.php, Denda*.php, dan AturanDendaFactory.php
-
-#### Sebelum
-
-![AturanDenda PHP sebelum](./ss-codingan-sebelum/php/prak12-AturanDenda.png)
-
-#### Sesudah
 
 ![AturanDenda.php PHP setelah](./ss-codingan-sesudah/php/prak12-AturanDenda.png)
 
@@ -155,12 +106,6 @@ Struktur dan tarifnya sama dengan versi Java: `DendaMahasiswa`, `DendaDosen`, `D
 
 ### LibraryService.php
 
-#### Sebelum
-
-![LibraryService PHP sebelum](./ss-codingan-sebelum/php/prak12-LibraryService.png)
-
-#### Sesudah
-
 ![LibraryService.php PHP setelah bagian 1](./ss-codingan-sesudah/php/prak12-LibraryService-1.png)
 
 ![LibraryService.php PHP setelah bagian 2](./ss-codingan-sesudah/php/prak12-LibraryService-2.png)
@@ -173,12 +118,6 @@ Sebelumnya `LibraryService` membuat `new KoleksiBuku()` sendiri. Sekarang `BookR
 
 ### main.php
 
-#### Sebelum
-
-![main.php sebelum](./ss-codingan-sebelum/php/prak12-main.png)
-
-#### Sesudah
-
 ![main.php PHP setelah bagian 1](./ss-codingan-sesudah/php/prak12-main-1.png)
 
 ![main.php PHP setelah bagian 2](./ss-codingan-sesudah/php/prak12-main-2.png)
@@ -186,12 +125,6 @@ Sebelumnya `LibraryService` membuat `new KoleksiBuku()` sendiri. Sekarang `BookR
 `main.php` merakit objek di satu tempat: `new InMemoryBookRepository()`, `AturanDendaFactory::untuk('mahasiswa')`, lalu `new LibraryService($repo, $aturanDenda)`. Tujuh skenario peminjaman dijalankan dan tiap kegagalan ditangkap lewat `PerpustakaanException`.
 
 ### LibraryServiceTest.php
-
-#### Sebelum
-
-![LibraryServiceTest PHP sebelum](./ss-codingan-sebelum/php/prak12-LibraryServiceTest.png)
-
-#### Sesudah
 
 ![LibraryServiceTest.php PHP setelah bagian 1](./ss-codingan-sesudah/php/prak12-LibraryServiceTest-1.png)
 
