@@ -2,8 +2,8 @@
 
 | Informasi Praktikan | Keterangan |
 | :--- | :--- |
-| **Nama** | *Muzaki Arifin* |
-| **NPM** | *4525210051* |
+| **Nama** | *Prevansyah Sjafar* |
+| **NPM** | *4525210057* |
 | **Kelas** | A |
 | **Mata Kuliah** | Pemrograman Berbasis Objek (PBO) |
 | **Pertemuan** | 13 — FRAMEWORK LARAVEL |
@@ -14,7 +14,7 @@
 
 ## 1. Panduan Instalasi
 
-**Kebutuhan:** PHP >= 8.3, Composer, Node.js & NPM, serta database (MySQL/SQLite).
+**Kebutuhan:** PHP >= 8.2, Composer, Node.js & NPM, serta database (MySQL/SQLite).
 
 1. Clone atau ekstrak project, lalu masuk ke folder project:
    ```bash
