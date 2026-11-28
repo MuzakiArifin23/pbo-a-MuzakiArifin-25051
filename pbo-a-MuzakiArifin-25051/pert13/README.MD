@@ -2,8 +2,8 @@
 
 | Informasi Praktikan | Keterangan |
 | :--- | :--- |
-| **Nama** | *Prevansyah Sjafar* |
-| **NPM** | *4525210057* |
+| **Nama** | *Muzaki Arifin* |
+| **NPM** | *4525210051* |
 | **Kelas** | A |
 | **Mata Kuliah** | Pemrograman Berbasis Objek (PBO) |
 | **Pertemuan** | 13 — FRAMEWORK LARAVEL |
